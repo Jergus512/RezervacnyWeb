@@ -368,7 +368,7 @@ function validateField(input) {
                 errorMessage = 'Password must be at least 6 characters long';
             } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(value)) {
                 isValid = false;
-                errorMessage = 'Password must contain lowercase, uppercase, and number';
+                errorMessage = 'Password must contain at least one lowercase letter, one uppercase letter, and one number';
             }
             break;
             
