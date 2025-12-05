@@ -1,0 +1,82 @@
+<%- include('./partials/header') %>
+
+<div class="login-container">
+    <div class="card">
+        <div class="card-header">
+            <h2>🔐 Login</h2>
+        </div>
+        <div class="card-body">
+            <form action="/login" method="POST" id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" 
+                           class="form-control" 
+                           id="username" 
+                           name="username" 
+                           placeholder="Enter your username"
+                           required
+                           minlength="3">
+                    <div class="invalid-feedback"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" 
+                           class="form-control" 
+                           id="password" 
+                           name="password" 
+                           placeholder="Enter your password"
+                           required
+                           minlength="6">
+                    <div class="invalid-feedback"></div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    Login
+                </button>
+            </form>
+            
+            <div style="margin-top: 1.5rem; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+                <p style="margin-bottom: 0.5rem; font-weight: bold;">Demo Credentials:</p>
+                <p style="margin: 0; font-size: 0.875rem;">
+                    <strong>Admin:</strong> admin / admin123<br>
+                    <strong>User:</strong> john_doe / password123
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    const username = document.getElementById('username');
+    const password = document.getElementById('password');
+    let isValid = true;
+    
+    // Clear previous validation
+    [username, password].forEach(input => {
+        input.classList.remove('is-invalid');
+        input.parentElement.querySelector('.invalid-feedback').textContent = '';
+    });
+    
+    // Validate username
+    if (username.value.trim().length < 3) {
+        username.classList.add('is-invalid');
+        username.parentElement.querySelector('.invalid-feedback').textContent = 'Username must be at least 3 characters';
+        isValid = false;
+    }
+    
+    // Validate password
+    if (password.value.length < 6) {
+        password.classList.add('is-invalid');
+        password.parentElement.querySelector('.invalid-feedback').textContent = 'Password must be at least 6 characters';
+        isValid = false;
+    }
+    
+    if (!isValid) {
+        e.preventDefault();
+    }
+});
+</script>
+
+<%- include('./partials/footer') %>
