@@ -1,0 +1,52 @@
+<%- include('./partials/header') %>
+
+<div class="hero">
+    <h1>Welcome to RezervacnyWeb</h1>
+    <p>A reservation web application designed for small fitness centers with group trainings.</p>
+    <% if (!currentUser) { %>
+        <a href="/login" class="btn btn-primary">Login to Get Started</a>
+    <% } else if (currentUser.role === 'admin') { %>
+        <a href="/admin" class="btn btn-primary">Go to Admin Panel</a>
+    <% } %>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-number">🏋️</div>
+        <div class="stat-label">Fitness Classes</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">👥</div>
+        <div class="stat-label">Group Trainings</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">📅</div>
+        <div class="stat-label">Easy Booking</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">⭐</div>
+        <div class="stat-label">Top Trainers</div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h2>About Our Application</h2>
+    </div>
+    <div class="card-body">
+        <p>RezervacnyWeb is a comprehensive reservation system for fitness centers that offer group training sessions. Our platform makes it easy to:</p>
+        <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+            <li>Book fitness classes and group training sessions</li>
+            <li>Manage user accounts and memberships</li>
+            <li>Track attendance and class schedules</li>
+            <li>Communicate with trainers and participants</li>
+        </ul>
+        <% if (!currentUser) { %>
+            <p style="margin-top: 1.5rem;">
+                <a href="/login" class="btn btn-primary">Login</a> to access all features.
+            </p>
+        <% } %>
+    </div>
+</div>
+
+<%- include('./partials/footer') %>

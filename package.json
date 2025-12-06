@@ -1,0 +1,24 @@
+{
+  "name": "rezervacnyweb",
+  "version": "1.0.0",
+  "description": "Semestralka/Bakalarka , rezervačna webova aplikacia určena pre male fitness centra so skupinovymi treningami.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fitness",
+    "reservation",
+    "web-application"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "body-parser": "^2.2.1",
+    "ejs": "^3.1.10",
+    "express": "^5.2.1",
+    "express-session": "^1.18.2"
+  }
+}
